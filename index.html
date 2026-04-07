@@ -3,209 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pavan Meena</title>
+<title>Pavan</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-
 body{
-background:#0f172a;
-color:white;
-scroll-behavior:smooth;
-overflow-x:hidden;
-}
-
-/* Navbar */
-nav{
-position:fixed;
-width:100%;
-padding:15px;
-background:rgba(0,0,0,0.5);
-display:flex;
-justify-content:space-around;
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#ff416c;
-}
-
-/* Sections */
-section{
-min-height:100vh;
+margin:0;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
+background:url('bg.jpg') no-repeat center/cover;
+color:white;
+font-family:'Segoe UI',sans-serif;
+overflow:hidden;
+}
+
+/* Dark overlay */
+body::after{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+top:0;
+left:0;
+}
+
+/* Glow effect */
+body::before{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#ff416c,transparent);
+filter:blur(120px);
+animation:move 8s infinite alternate;
+z-index:1;
+}
+
+@keyframes move{
+0%{transform:translate(-100px,-100px);}
+100%{transform:translate(100px,100px);}
+}
+
+.container{
+position:relative;
+z-index:2;
 text-align:center;
-padding:40px;
-opacity:0;
-transform:translateY(50px);
-transition:1s;
+max-width:600px;
 }
 
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* Hero */
-.hero{
-background:linear-gradient(135deg,#1e293b,#0f172a);
-}
-
-.profile{
+img{
 width:150px;
 height:150px;
 border-radius:50%;
 box-shadow:0 0 40px #ff416c;
 margin-bottom:20px;
-animation:glow 2s infinite alternate;
+object-fit:cover;
 }
 
-@keyframes glow{
-from{box-shadow:0 0 20px #ff416c;}
-to{box-shadow:0 0 60px #ff416c;}
+/* Typing */
+#typing{
+font-size:18px;
+opacity:0.85;
+min-height:60px;
 }
 
-/* Cards */
-.card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-margin:15px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-transition:0.4s;
+.cursor{
+display:inline-block;
+width:2px;
+height:18px;
+background:white;
+margin-left:5px;
+animation:blink 1s infinite;
 }
 
-.card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 0 20px rgba(255,65,108,0.5);
+@keyframes blink{
+0%,50%,100%{opacity:1;}
+25%,75%{opacity:0;}
 }
 
 /* Button */
 button{
-padding:12px 25px;
+margin-top:30px;
+padding:12px 30px;
 border:none;
-border-radius:25px;
+border-radius:30px;
 background:linear-gradient(45deg,#ff416c,#ff4b2b);
 color:white;
+font-size:16px;
 cursor:pointer;
 transition:0.3s;
 }
 
 button:hover{
 transform:scale(1.1);
-}
-
-/* Footer */
-footer{
-text-align:center;
-padding:20px;
-background:black;
-}
-
-/* Typing */
-#typing{
-font-size:18px;
-opacity:0.8;
-margin-top:10px;
+box-shadow:0 0 20px #ff416c;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#work">Work</a>
-<a href="#contact">Contact</a>
-</nav>
+<div class="container">
 
-<!-- HERO -->
-<section id="home" class="hero">
-<img src="pavan.jpg" class="profile">
-<h1>Hi, I'm Pavan 👋</h1>
-<p id="typing"></p>
+<img src="pavan.jpg">
+
+<h1>Hi, I'm Pavan 👀</h1>
+
+<div id="typing"></div><span class="cursor"></span>
 
 <br>
 
-<a href="https://www.instagram.com/pavanm_57/" target="_blank">
-<button>Connect on Instagram 🔥</button>
+<a href="https://instagram.com/pavanm_57" target="_blank">
+<button>Enter My World 🔥</button>
 </a>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-<h2>About Me</h2>
-
-<div class="card">Engineering Graduate from NIT Kurukshetra</div>
-<div class="card">Proud Rajasthani ❤️</div>
-<div class="card">Currently living in Ranchi</div>
-
-</section>
-
-<!-- WORK -->
-<section id="work">
-<h2>What I Do</h2>
-
-<div class="card">Auditor at Comptroller and Auditor General of India</div>
-<div class="card">Focused on discipline, growth and building future</div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2>Let's Connect</h2>
-<p>If you reached here, you're already interested 😉</p>
-
-<a href="https://instagram.com/yourusername" target="_blank">
-<button>DM Me 🚀</button>
-</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-© All Rights Reserved to Pavan
-</footer>
+</div>
 
 <script>
-// Typing Effect
-let text = "Building my own journey... one step at a time 🚀";
-let i = 0;
+let lines = [
+"Engineer from NIT Kurukshetra 🎓",
+"Government Auditor 🏛️",
+"Focused on growth & discipline 🚀",
+"And maybe… I'm different 😉"
+];
 
-function typing(){
-if(i < text.length){
-document.getElementById("typing").innerHTML += text.charAt(i);
-i++;
-setTimeout(typing,40);
+let lineIndex = 0;
+let charIndex = 0;
+
+function typeEffect(){
+if(lineIndex < lines.length){
+if(charIndex < lines[lineIndex].length){
+document.getElementById("typing").innerHTML += lines[lineIndex].charAt(charIndex);
+charIndex++;
+setTimeout(typeEffect,40);
+}else{
+setTimeout(()=>{
+document.getElementById("typing").innerHTML += "<br>";
+lineIndex++;
+charIndex = 0;
+typeEffect();
+},800);
 }
 }
-typing();
-
-// Scroll Animation
-let sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-let top = window.scrollY;
-let offset = sec.offsetTop - 300;
-
-if(top > offset){
-sec.classList.add("show");
 }
-});
-});
+
+typeEffect();
 </script>
 
 </body>
