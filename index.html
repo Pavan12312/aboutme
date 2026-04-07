@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavan Meena</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXX');
+</script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+/* Navbar */
+nav{
+position:fixed;
+width:100%;
+padding:15px;
+background:rgba(0,0,0,0.5);
+display:flex;
+justify-content:space-around;
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#ff416c;
+}
+
+/* Sections */
+section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:40px;
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Hero */
+.hero{
+background:linear-gradient(135deg,#1e293b,#0f172a);
+}
+
+.profile{
+width:150px;
+height:150px;
+border-radius:50%;
+box-shadow:0 0 40px #ff416c;
+margin-bottom:20px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 20px #ff416c;}
+to{box-shadow:0 0 60px #ff416c;}
+}
+
+/* Cards */
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+margin:15px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 20px rgba(255,65,108,0.5);
+}
+
+/* Button */
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#ff416c,#ff4b2b);
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* Footer */
+footer{
+text-align:center;
+padding:20px;
+background:black;
+}
+
+/* Typing */
+#typing{
+font-size:18px;
+opacity:0.8;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC (optional) -->
+<audio autoplay loop>
+<source src="YOUR_MUSIC_LINK.mp3" type="audio/mp3">
+</audio>
+
+<!-- NAVBAR -->
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+<img src="pavan.jpg" class="profile">
+<h1>Hi, I'm Pavan 👋</h1>
+<p id="typing"></p>
+
+<br>
+
+<a href="https://instagram.com/yourusername" target="_blank">
+<button>Connect on Instagram 🔥</button>
+</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Me</h2>
+
+<div class="card">Engineering Graduate from NIT Kurukshetra</div>
+<div class="card">Proud Rajasthani ❤️</div>
+<div class="card">Currently living in Ranchi</div>
+
+</section>
+
+<!-- WORK -->
+<section id="work">
+<h2>What I Do</h2>
+
+<div class="card">Auditor at Comptroller and Auditor General of India</div>
+<div class="card">Focused on discipline, growth and building future</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Let's Connect</h2>
+<p>If you reached here, you're already interested 😉</p>
+
+<a href="https://instagram.com/yourusername" target="_blank">
+<button>DM Me 🚀</button>
+</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+© All Rights Reserved to Pavan
+</footer>
+
+<script>
+// Typing Effect
+let text = "Building my own journey... one step at a time 🚀";
+let i = 0;
+
+function typing(){
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,40);
+}
+}
+typing();
+
+// Scroll Animation
+let sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+let top = window.scrollY;
+let offset = sec.offsetTop - 300;
+
+if(top > offset){
+sec.classList.add("show");
+}
+});
+});
+</script>
+
+</body>
+</html>
